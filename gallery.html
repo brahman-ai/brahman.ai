@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Brahman</title>
+		
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+		<link rel="icon" href="/images/favicon.png">	
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-196x196.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+		<link rel="manifest" href="/images/favicons/site.webmanifest">
+
+		<meta property="og:title" content="BRAHMAN">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="BRAHMAN" />
+		<meta property="og:description" content="An experiment in low-cost, high-tech living & learning in the California desert, Jan 6 - March 27, 2020 😎️️️🏜❤️🌵️☀️">
+		<meta name="twitter:description" content="An experiment in low-cost, high-tech living & learning in the California desert, Jan 6 - March 27, 2020 😎️️️🏜❤️🌵️☀️" />
+		<meta name="twitter:image" content="http://brahman.ai/images/cacti.jpg" />
+		<meta property="og:image" content="http://brahman.ai/images/cacti.jpg">
+
+		<script src="/js/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+		<style>
+			
+			* {
+				box-sizing: border-box;
+			}
+
+			.row > .column {
+				padding: 0 8px;
+			}
+
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			.column {
+				float: left;
+				width: 25%;
+			}
+
+			/* The Modal (background) */
+			.modal {
+				display: none;
+				position: fixed;
+				z-index: 1;
+				padding-top: 10px;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: black;
+			}
+
+			/* Modal Content */
+			.modal-content {
+				position: relative;
+				background-color: #fefefe;
+				margin: auto;
+				padding: 0;
+				width: 90%;
+				max-width: 1024px;
+			}
+
+			/* The Close Button */
+			.close {
+				color: white;
+				position: absolute;
+				top: 10px;
+				right: 25px;
+				font-size: 35px;
+				font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #999;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.mySlides {
+				display: none;
+				text-align: center;
+				
+				background-color: #000;
+
+			}
+
+			.cursor {
+				cursor: pointer;
+			}
+
+			/* Next & previous buttons */
+			.prev,
+			.next {
+				cursor: pointer;
+				position: absolute;
+				top: 10%;
+				width: auto;
+				padding: 16px;
+				margin-top: -50px;
+				color: white;
+				font-weight: bold;
+				font-size: 20px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+				-webkit-user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover,
+			.next:hover {
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+
+			/* Number text (1/3 etc) */
+			.numbertext {
+				color: #f2f2f2;
+				background-color:#000;
+				font-size: 16px;
+				padding: 8px 12px;
+				position: absolute;
+				top: 0;
+			}
+
+			img {
+				margin-bottom: -4px;
+			}
+
+			.caption-container {
+				text-align: center;
+				background-color: black;
+				padding: 4px 16px;
+				color: white;
+			}
+
+			.demo {
+				opacity: 0.6;
+			}
+			
+			img.demo {
+				width:20%;
+			}
+
+			.active,
+			.demo:hover {
+				opacity: 1;
+			}
+
+			img.hover-shadow {
+				transition: 0.3s;
+			}
+
+			.hover-shadow:hover {
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+
+			.helper {
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}	
+
+			#inner_container {
+				padding-left:20px;
+				padding-right:10px;
+			}
+
+		</style>
+
+
+	</head>
+
+	<body>
+
+		<div id="container">
+
+			
+
+			<div id="navbar">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/info.html">Info</a></li>
+					<li><a href="/activity.html">Activities</a></li>
+					<li><a href="/gallery.html">Gallery</a></li>
+					<li><a href="/inspiration.html">Inspirations</a></li>
+					<li><a href="/join.html">Join</a></li>	
+				</ul>
+			</div>
+
+
+			<div id="inner_container">
+
+			
+			<h1>Bombay</h1>
+			<h3>Some pictures of our future compound in Bombay Beach, as of summer 2019.</h3>
+			<div id="row_land" class="row"></div>
+
+			<h1>Jaaga</h1>
+			<h3>We use these structures as multi-purpose buildings to make art, have meetings, decorate, appreciate the view, and other things. The Jaaga is our canvas.</h3>
+			<div id="row_jaaga" class="row"></div>
+
+			<h1>Hexapods</h1>
+			<h3>These pods are designed to be extendable units for occupancy, and will be the bulk of the available accomodations. You can stay in one of these, or in a tent on the campsite, or if you wish, bring some other accommodations.</h3>
+			<div id="row_pods" class="row"></div>
+
+			<div id="myModal" class="modal">
+				<span class="close cursor" onclick="closeModal()">&times;</span>
+				<div class="modal-content">
+					<div id="modal1"></div>					
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					<div class="caption-container"><p id="caption"></p></div>
+					<div id="modal2"></div>	
+				</div>
+			</div>
+
+			</div>
+
+			<script>
+				function openModal() {
+					document.getElementById("myModal").style.display = "block";
+				}
+
+				function closeModal() {
+					document.getElementById("myModal").style.display = "none";
+				}
+
+				function plusSlides(n) {
+					showSlides(slideIndex += n);
+				}
+
+				function currentSlide(n) {
+					showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+					var slides = document.getElementsByClassName("mySlides");
+					var dots = document.getElementsByClassName("demo");
+					var captionText = document.getElementById("caption");
+					if (n > slides.length) {slideIndex = 1}
+					if (n < 1) {slideIndex = slides.length}
+					for (var i = 0; i < slides.length; i++) {
+							slides[i].style.display = "none";
+					}
+					for (var i = 0; i < dots.length; i++) {
+							dots[i].className = dots[i].className.replace(" active", "");
+					}
+					slides[slideIndex-1].style.display = "block";
+					dots[slideIndex-1].className += " active";
+					captionText.innerHTML = dots[slideIndex-1].alt;
+				}
+
+				function setKeyHandler(e) {
+					e = e || window.event;
+					if (e.keyCode == 37) {
+						plusSlides(-1);
+					} else if (e.keyCode == 39){
+						plusSlides(1);
+					} else if (e.keyCode==27) {
+						closeModal();
+					}
+					console.log(e.keyCode);
+				}
+
+				function addLinker(container, img, idx) {
+					var html = '<div class="column" style="padding:5px; width:32%; vertical-align:middle"><span class="helper"></span><img src="'+img+'" style="padding:3px;width:100%;vertical-align:middle" onclick="openModal();currentSlide('+idx+')" class="hover-shadow cursor"></div>'
+					$(container).append(html);
+				}
+
+				function addModal(container1, container2, img, txt, idx) {
+					var html = '<div class="mySlides"><div class="numbertext">'+txt+'</div><img src="'+img+'" style="max-height:90vh;max-width:90vw"></div>'
+					$(container1).append(html);
+
+					html = '<div class="column"><img class="demo cursor" src="'+img+'" style="width:100%;padding:3px" onclick="currentSlide('+idx+')" ></div>';
+					$(container2).append(html);
+				}
+
+				var images = {
+					'land': [
+						{'description':'This is our future compound as of July', 'path':'/images/bombay/IMG_20190305_102537811.jpg'}, 
+						{'description':'Not much to look at right now...', 'path':'/images/bombay/IMG_20190305_102541477.jpg'}, 
+						{'description':'Big sky here', 'path':'/images/bombay/IMG_20190304_174936602_HDR.jpg'}, 
+						{'description':'Our neighbor: Bombay Beach Institute for Particle Physics', 'path':'/images/bombay/IMG_20190205_113212960_HDR.jpg'}, 
+						{'description':'A design of the rough layout we imagine for the compound.', 'path':'/images/bombay/compound-smaller.jpg'}, 
+						{'description':'Another view', 'path':'/images/bombay/IMG_20190305_084147875.jpg'}, 
+						{'description':'Some furniture around', 'path':'/images/bombay/IMG_20190305_084258852.jpg'}, 
+						{'description':'Mars: a 30-acre property outside the main town that we also have', 'path':'/images/bombay/IMG_20190305_111554366.jpg'}
+					],
+					'jaaga': [
+						{'description':'This is the Jaaga structure built for the last biennale. We plan on making a bigger one.','path':'/images/jaaga/IMG_20190205_113253348_HDR.jpg'},
+						{'description':'We like to adorn Jaaga with art', 'path':'/images/jaaga/IMG_20190325_173625680_HDR.jpg'},
+						{'description':'A flower made from bicycle wheels', 'path':'/images/jaaga/IMG_3744.jpg'}, 
+						{'description':'It really ties the room ', 'path':'/images/jaaga/IMG_20190325_173706054_HDR.jpg'},
+						{'description':'Nighttime view', 'path':'/images/jaaga/IMG_20190322_013243.jpg'}, 
+						{'description':'A view of Jaaga from BB Institute for Particle Physics', 'path':'/images/jaaga/IMG_20190205_113236554_HDR.jpg'}, 
+						{'description':'Nice to meet in the shade', 'path':'/images/jaaga/IMG_3745.jpg'}, 
+						{'description':'Another nice meeting spot', 'path':'/images/jaaga/IMG_3749.jpg'},
+						{'description':'Sometimes it\'s nice to camp up there. Great views from the top', 'path':'/images/jaaga/IMG_3755.jpg'}
+					],
+					'pods': [
+						{'description':'Hexapod in-progress', 'path':'/images/pods/IMG_2181.jpg'}, 
+						{'description':'Looks like an MC Escher drawing', 'path':'/images/pods/IMG_2943.jpg'}, 
+						{'description':'It\'s cosy :)', 'path':'/images/pods/IMG_20180723_144538678.jpg'}, 
+						{'description':'They stack like honey combs', 'path':'/images/pods/IMG_20180723_144633852_HDR.jpg'}, 
+						{'description':'They can get really big!', 'path':'/images/pods/IMG_20180826_165410-EFFECTS.jpg'}, 
+						{'description':'Reaaally big!', 'path':'/images/pods/IMG_20180829_104747.jpg'}, 
+						{'description':'Even sunrays are confused in the pods', 'path':'/images/pods/IMG_20180901_184846006_HDR.jpg'}, 
+						{'description':'A happy hexapod', 'path':'/images/pods/Podmahal1.jpg'}
+					]
+				};
+
+				var idx_modal = 1;
+
+				for (var i=0; i<images.land.length; i++) {
+					addLinker('#row_land', images.land[i].path, idx_modal);
+					addModal('#modal1', '#modal2', images.land[i].path, images.land[i].description, idx_modal);
+					idx_modal += 1;
+				}
+
+				for (var i=0; i<images.jaaga.length; i++) {
+					addLinker('#row_jaaga', images.jaaga[i].path, idx_modal);
+					addModal('#modal1', '#modal2', images.jaaga[i].path, images.jaaga[i].description, idx_modal);
+					idx_modal += 1;
+				}
+
+				for (var i=0; i<images.pods.length; i++) {
+					addLinker('#row_pods', images.pods[i].path, idx_modal);
+					addModal('#modal1', '#modal2', images.pods[i].path, images.pods[i].description, idx_modal);
+					idx_modal += 1;
+				}
+				
+				document.onkeydown = setKeyHandler;
+				var slideIndex = 1;
+				showSlides(slideIndex);
+
+			</script>
+
+		</div>
+		
+		&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;
+
+  </body>
+</html>
+
